@@ -1,0 +1,130 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text color for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px; /* Space for the fixed header */
+}
+
+header {
+    width: 100%;
+    background-color: #000; /* Match the body background */
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    color: #ff4d00; /* Orange color for your name */
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.online-status {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #00ff00; /* Green color */
+    border-radius: 50%;
+    animation: blink 1s infinite; /* Blinking animation */
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+.timezone {
+    background-color: #ffffff; /* White background for each timezone block */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    width: calc(33% - 20px);
+    text-align: center;
+    position: relative; /* Needed for positioning the flag */
+}
+
+.flag-icon {
+    position: absolute; /* Position flag in the top-left corner */
+    top: 10px;
+    left: 10px;
+    width: 40px; /* Adjust size of flags as needed */
+    height: auto;
+}
+
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    color: #ff4d00; /* Orange color for headings */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.time {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #000000; /* Black color for time */
+    margin-bottom: 10px;
+}
+
+.date-info {
+    font-size: 1.25rem;
+    color: #000000; /* Black color for date */
+    margin-top: 10px;
+    background: none; /* Remove background */
+}
+
+
+
+/* Blinker styling */
+.blinker {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #00ff00; /* Green color */
+    border-radius: 50%;
+    margin-left: 10px;
+    animation: blink 1s infinite; /* Blinking animation */
+}
+
+@keyframes blink {
+    0%, 50%, 100% {
+        opacity: 1;
+    }
+    25%, 75% {
+        opacity: 0;
+    }
+}
