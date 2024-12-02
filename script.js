@@ -3,32 +3,46 @@ function updateTime() {
         hour: '2-digit',
         minute: '2-digit',
         second: '2-digit',
-        hour12: true // 12-hour format with AM/PM
+        timeZoneName: 'short',
+        hour12: true // Ensure 12-hour format with AM/PM
     };
 
-    // Manila (Philippines)
-    const manilaTime = new Intl.DateTimeFormat('en-PH', { ...timeOptions, timeZone: 'Asia/Manila' }).format(new Date());
-    document.getElementById('manila-time').innerText = manilaTime;
+    const dateOptions = {
+        weekday: 'long',
+        month: 'long',
+        day: 'numeric'
+    };
 
-    // New York (USA)
-    const newYorkTime = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'America/New_York' }).format(new Date());
-    document.getElementById('new-york-time').innerText = newYorkTime;
+    // Philippines (Manila)
+    const phDate = new Intl.DateTimeFormat('en-PH', { ...dateOptions, timeZone: 'Asia/Manila' }).format(new Date());
+    const phTime = new Intl.DateTimeFormat('en-PH', { ...timeOptions, timeZone: 'Asia/Manila' }).format(new Date());
+    document.getElementById('ph-date').innerText = phDate;
+    document.getElementById('ph-time').innerText = phTime;
 
-    // Los Angeles (USA)
-    const losAngelesTime = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'America/Los_Angeles' }).format(new Date());
-    document.getElementById('los-angeles-time').innerText = losAngelesTime;
+    // US (New York)
+    const usDate = new Intl.DateTimeFormat('en-US', { ...dateOptions, timeZone: 'America/New_York' }).format(new Date());
+    const usTime = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'America/New_York' }).format(new Date());
+    document.getElementById('us-date').innerText = usDate;
+    document.getElementById('us-time').innerText = usTime;
 
     // Ontario (Canada)
+    const ontarioDate = new Intl.DateTimeFormat('en-CA', { ...dateOptions, timeZone: 'America/Toronto' }).format(new Date());
     const ontarioTime = new Intl.DateTimeFormat('en-CA', { ...timeOptions, timeZone: 'America/Toronto' }).format(new Date());
-    console.log('Ontario Time:', ontarioTime);  // Add this line to debug
+    document.getElementById('ontario-date').innerText = ontarioDate;
     document.getElementById('ontario-time').innerText = ontarioTime;
 
-
     // Tokyo (Japan)
+    const tokyoDate = new Intl.DateTimeFormat('en-JP', { ...dateOptions, timeZone: 'Asia/Tokyo' }).format(new Date());
     const tokyoTime = new Intl.DateTimeFormat('en-JP', { ...timeOptions, timeZone: 'Asia/Tokyo' }).format(new Date());
+    document.getElementById('tokyo-date').innerText = tokyoDate;
     document.getElementById('tokyo-time').innerText = tokyoTime;
+
+    // Los Angeles (USA)
+    const laDate = new Intl.DateTimeFormat('en-US', { ...dateOptions, timeZone: 'America/Los_Angeles' }).format(new Date());
+    const laTime = new Intl.DateTimeFormat('en-US', { ...timeOptions, timeZone: 'America/Los_Angeles' }).format(new Date());
+    document.getElementById('la-date').innerText = laDate;
+    document.getElementById('la-time').innerText = laTime;
 }
 
-// Update every second
-setInterval(updateTime, 1000);
+setInterval(updateTime, 1000); // Update every second
 updateTime(); // Initial call
